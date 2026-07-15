@@ -173,35 +173,6 @@
     gap: 32px;
     align-items: center;
   }
-  .fe-hero__tabs {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    height: 40px;
-    padding: 4px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    box-sizing: border-box;
-  }
-  .fe-hero__tab {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 32px;
-    padding: 0 12px;
-    min-width: 89px;
-    border: none;
-    background: transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: var(--sans);
-    font-weight: 700;
-    font-size: 14px;
-    color: #93aec1;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  .fe-hero__tab.active { background: #0068fc; color: #fff; }
-
   .fe-hero__carousel { width: 100%; display: flex; flex-direction: column; gap: 24px; }
   .fe-hero__strip-wrap { width: 405px; overflow: hidden; }
   .fe-hero__strip {
@@ -975,11 +946,6 @@
     </div>
 
     <div class="fe-hero__right">
-      <div class="fe-hero__tabs" id="hero-tabs">
-        <button class="fe-hero__tab active" data-tab="interviews">Interviews</button>
-        <button class="fe-hero__tab" data-tab="insights">Insights</button>
-      </div>
-
       <div class="fe-hero__carousel">
         <div class="fe-hero__strip-wrap">
           <div class="fe-hero__strip" id="hero-strip"><!-- cards injected by JS --></div>
@@ -1781,29 +1747,24 @@ applyMode();
   const dotsEl = document.getElementById("hero-dots");
   const catEl = document.getElementById("hero-cat");
   const titleEl = document.getElementById("hero-title");
-  const tabsEl = document.getElementById("hero-tabs");
   if (!strip) return;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // formationIndex maps each slide to a hero topo formation (0-3)
   const SLIDES = [
-    { tab: "interviews", cat: "global value", title: "How Scarcity Is Reasserting the Strategic Value of Real Assets.", thumb: "hero/video-3.png", formationIndex: 0 },
-    { tab: "interviews", cat: "market outlook", title: "Reading the Cycle: Where Discipline Pays Off in a Late-Stage Market.", thumb: "hero/video-2.png", formationIndex: 1 },
-    { tab: "interviews", cat: "portfolio construction", title: "Building a Margin of Safety Into Every Client Conversation.", thumb: "hero/video-1.png", formationIndex: 2 },
-    { tab: "insights", cat: "gold & real assets", title: "Why Gold Remains a Strategic Hedge, Not a Trade.", thumb: null, formationIndex: 3 },
-    { tab: "insights", cat: "global equity", title: "Finding Resilience Across Borders in an Uncertain Decade.", thumb: null, formationIndex: 0 },
+    { cat: "global value", title: "How Scarcity Is Reasserting the Strategic Value of Real Assets.", thumb: "hero/video-3.png", formationIndex: 0 },
+    { cat: "market outlook", title: "Reading the Cycle: Where Discipline Pays Off in a Late-Stage Market.", thumb: "hero/video-2.png", formationIndex: 1 },
+    { cat: "portfolio construction", title: "Building a Margin of Safety Into Every Client Conversation.", thumb: "hero/video-1.png", formationIndex: 2 },
   ];
 
   const CARD_W = 405, GAP = 20, AUTO_MS = 6000;
-  let activeTab = "interviews";
-  let view = [];      // slides filtered to activeTab
+  const view = SLIDES;
   let idx = 0;        // index within view
   let timer = null, paused = false;
 
   function buildStrip() {
     strip.innerHTML = "";
     dotsEl.innerHTML = "";
-    view = SLIDES.filter(s => s.tab === activeTab);
     view.forEach((s, i) => {
       const card = document.createElement("div");
       card.className = "fe-hero__card";
@@ -1839,26 +1800,12 @@ applyMode();
     render();
   }
 
-  function setTab(tab) {
-    if (tab === activeTab) return;
-    activeTab = tab;
-    Array.from(tabsEl.children).forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
-    idx = 0;
-    buildStrip();
-    render();
-    resetTimer();
-  }
-
   function tick() { if (!paused) goTo(idx + 1); }
   function resetTimer() {
     if (timer) clearInterval(timer);
     if (!reduceMotion) timer = setInterval(tick, AUTO_MS);
   }
 
-  tabsEl.addEventListener("click", (e) => {
-    const btn = e.target.closest(".fe-hero__tab");
-    if (btn) setTab(btn.dataset.tab);
-  });
   document.getElementById("hero-next").addEventListener("click", () => { goTo(idx + 1); resetTimer(); });
   document.getElementById("hero-prev").addEventListener("click", () => { goTo(idx - 1); resetTimer(); });
 
