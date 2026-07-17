@@ -1356,6 +1356,129 @@
     .fe-funds { padding: 80px 40px; }
   }
 
+  /* ===================== ENGAGE ===================== */
+  .fe-engage {
+    background: #f9f8f8;
+    padding: 80px;
+    box-sizing: border-box;
+  }
+  .fe-engage__card {
+    position: relative;
+    background: #0068fc;
+    border-radius: 8px 8px 80px 8px;
+    padding: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .fe-engage__type {
+    position: absolute;
+    left: 672px;
+    top: 25px;
+    width: 513px;
+    height: 548px;
+    pointer-events: none;
+  }
+  .fe-engage__content {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+  }
+  .fe-engage__eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+  }
+  .fe-engage__title {
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: -0.35px;
+    color: #fff;
+    margin: 0;
+    max-width: 624px;
+  }
+  .fe-engage__desc {
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0;
+    max-width: 544px;
+  }
+  .fe-engage__form {
+    position: relative;
+    flex: 0 0 340px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+  .fe-engage__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .fe-engage__input {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .fe-engage__input::placeholder { color: rgba(255, 255, 255, 0.7); }
+  .fe-engage__submit {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    background: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000e29;
+    cursor: pointer;
+  }
+  .fe-engage__disclaimer {
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.15px;
+    color: #fff;
+    margin: 0;
+    width: 100%;
+  }
+  @media (max-width: 1100px) {
+    .fe-engage { padding: 40px; }
+    .fe-engage__card { flex-direction: column; align-items: flex-start; gap: 40px; padding: 48px; }
+    .fe-engage__form { flex: none; width: 100%; }
+    .fe-engage__type { display: none; }
+  }
+
   /* ===================== TEAMS ===================== */
   .fe-teams {
     background: #f1ece8;
@@ -1714,6 +1837,25 @@
       </div>
       <a href="#" class="fe-gallery__read">Read Insight <img src="insights/arrow-right-white.svg" alt=""></a>
     </article>
+  </div>
+</section>
+
+<!-- ===================== ENGAGE ===================== -->
+<section class="fe-engage">
+  <div class="fe-engage__card">
+    <img class="fe-engage__type" src="engage/type-watermark.svg" alt="">
+    <div class="fe-engage__content">
+      <p class="fe-engage__eyebrow">First Eagle Briefings</p>
+      <h2 class="fe-engage__title">The thinking, in your inbox.</h2>
+      <p class="fe-engage__desc">Subscribe to get market outlooks, fund commentaries and practice management guides directly from our investment teams.</p>
+    </div>
+    <div class="fe-engage__form">
+      <div class="fe-engage__fields">
+        <input class="fe-engage__input" type="email" placeholder="Enter Your Email">
+        <button class="fe-engage__submit">Subscribe</button>
+      </div>
+      <p class="fe-engage__disclaimer">You can unsubscribe at any time. For information on how your data is used, visit our Privacy Policy.</p>
+    </div>
   </div>
 </section>
 
