@@ -1486,6 +1486,85 @@
     .fe-engage__type { display: none; }
   }
 
+  /* ===================== TOOLS ===================== */
+  .fe-tools {
+    background: #f1ece8;
+    padding: 80px;
+    box-sizing: border-box;
+  }
+  .fe-tools__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 624px;
+    margin-bottom: 47px;
+  }
+  .fe-tools__eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #626b7f;
+    margin: 0;
+  }
+  .fe-tools__title {
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: -0.35px;
+    color: #000e29;
+    margin: 0;
+  }
+  .fe-tools__cards {
+    display: flex;
+    gap: 32px;
+    align-items: stretch;
+  }
+  .fe-tools__card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    background: #f9f8f8;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  .fe-tools__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .fe-tools__card-name {
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.1;
+    color: #000e29;
+    margin: 0;
+  }
+  .fe-tools__card-arrow {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+  }
+  .fe-tools__card-desc {
+    font-family: "FE Chivo", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #000e29;
+    margin: 0;
+  }
+  @media (max-width: 1000px) {
+    .fe-tools { padding: 80px 40px; }
+    .fe-tools__cards { flex-direction: column; }
+  }
+
   /* ===================== TEAMS ===================== */
   .fe-teams {
     background: #f1ece8;
@@ -1911,6 +1990,37 @@
     </div>
   </div>
 </div>
+
+<!-- ===TOOLS=== -->
+<section class="fe-tools">
+  <div class="fe-tools__header">
+    <p class="fe-tools__eyebrow">Your Practice. Your Tools.</p>
+    <h2 class="fe-tools__title">Everything you need for the client conversation</h2>
+  </div>
+  <div class="fe-tools__cards">
+    <a href="#" class="fe-tools__card">
+      <div class="fe-tools__card-top">
+        <p class="fe-tools__card-name">Fund Finder</p>
+        <img class="fe-tools__card-arrow" src="insights/arrow-right-blue.svg" alt="">
+      </div>
+      <p class="fe-tools__card-desc">Filter by asset class, vehicle, or strategy. Compare performance.</p>
+    </a>
+    <a href="#" class="fe-tools__card">
+      <div class="fe-tools__card-top">
+        <p class="fe-tools__card-name">First Eagle Academy</p>
+        <img class="fe-tools__card-arrow" src="insights/arrow-right-blue.svg" alt="">
+      </div>
+      <p class="fe-tools__card-desc">CE-eligible courses, practice management tools, and client conversation resources.</p>
+    </a>
+    <a href="#" class="fe-tools__card">
+      <div class="fe-tools__card-top">
+        <p class="fe-tools__card-name">Fact Sheets &amp; Downloads</p>
+        <img class="fe-tools__card-arrow" src="insights/arrow-right-blue.svg" alt="">
+      </div>
+      <p class="fe-tools__card-desc">Current fact sheets, prospectuses, commentary, and portfolio composition files.</p>
+    </a>
+  </div>
+</section>
 
 <!-- ===TEAMS=== -->
 <section class="fe-teams">
