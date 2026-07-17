@@ -128,19 +128,19 @@
   .fe-hero__headline {
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 88px;
-    line-height: 1;
-    letter-spacing: -1.5px;
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: -1px;
     color: #fff;
     margin: 0;
     max-width: 737px;
   }
   .fe-hero__sub {
-    margin: 122px 0 0;
+    margin: 48px 0 0;
     max-width: 405px;
     display: flex;
     flex-direction: column;
-    gap: 44px;
+    gap: 32px;
     align-items: flex-start;
   }
   .fe-hero__body {
@@ -2277,7 +2277,7 @@
 
   buildStrip();
   render();
-  resetTimer();
+  if (!reduceMotion) scheduleProgress();
 })();
 
 /* ---------------------- funds — ambient topo background ---------------------- */
